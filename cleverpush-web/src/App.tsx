@@ -19,7 +19,6 @@ function App() {
   const [error, setError] = useState(false);
 
   const checkIsSubscribe = () => {
-    setError(false);
     cleverPush.push([
       "isSubscribed",
       function (result: any) {
@@ -63,7 +62,7 @@ function App() {
 
   return (
     <div className="App">
-      <button className="button" type="button" onClick={checkIsSubscribe}>
+      <button disabled={error} className="button" type="button" onClick={checkIsSubscribe}>
         {buttonText}
       </button>
       {error && (
